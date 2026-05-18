@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-primary: #FFFFFF;
+  --color-accent: #E31E24; /* Aggressive Red from Logo */
+  --color-bg-dark: #050505;
+  --color-bg-card: rgba(255, 255, 255, 0.05);
+}
+
+@layer base {
+  body {
+    @apply bg-[#050505] text-white antialiased selection:bg-white/20;
+    scroll-behavior: smooth;
+  }
+}
+
+/* Ensure logos are NEVER inverted or filtered by global styles or plugins */
+.logo-isolated {
+  filter: none !important;
+  mix-blend-mode: normal !important;
+  image-rendering: auto !important;
+  transform: translateZ(0); /* Force GPU layer to potentially avoid some browser filters */
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/[0.03] backdrop-blur-2xl border border-white/10 rounded-3xl;
+  }
+  
+  .premium-gradient {
+    background: linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 100%);
+  }
+
+  .text-luxury {
+    @apply font-serif italic tracking-tighter uppercase;
+  }
+
+  .text-display {
+    @apply font-sans font-black italic uppercase leading-[0.9] tracking-tighter;
+  }
+
+  .pill {
+    @apply inline-flex items-center px-3 py-1 bg-white/[0.01] border border-white/[0.08] rounded-full text-[10px] uppercase tracking-widest font-semibold text-white/90;
+  }
+
+  .btn-primary {
+    @apply px-8 py-5 bg-white/[0.01] border border-white/[0.15] text-white font-black italic uppercase text-[11px] tracking-[0.2em] rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.5)] shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)] hover:bg-white/[0.08] hover:border-white/[0.3] hover:scale-[1.02] active:scale-[0.98] transition-all duration-500 flex items-center justify-center gap-3;
+  }
+
+  .btn-secondary {
+    @apply px-8 py-5 bg-white/[0.005] border border-white/[0.05] text-white/70 font-black italic uppercase text-[11px] tracking-[0.2em] rounded-2xl shadow-[inset_0_1px_1px_rgba(255,255,255,0.03)] hover:bg-white/[0.05] hover:text-white hover:border-white/[0.15] transition-all duration-500 flex items-center justify-center gap-3;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-black;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-white/20 rounded-full hover:bg-white/40 transition-colors;
+}
+

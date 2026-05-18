@@ -1,0 +1,6 @@
+{
+  "name": "Detailing Uzhgorod",
+  "description": "Premium car detailing studio in Uzhhorod. Professional polishing, ceramic coating, dry cleaning, and high-end automotive care.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
