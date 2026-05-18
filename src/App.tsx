@@ -118,6 +118,7 @@ export default function App() {
                 className="h-8 md:h-12 w-auto block logo-isolated"
                 loading="eager"
                 decoding="async"
+                style={{ fetchPriority: 'high' } as any}
               />
             </div>
             <div>
@@ -212,7 +213,7 @@ export default function App() {
       </AnimatePresence>
 
       {/* --- HERO SECTION --- */}
-      <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden py-20 md:py-0">
+      <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden py-24 md:py-32">
         {/* BG Image with Parallax & Dark Overlay */}
         <motion.div 
           initial={{ scale: 1.1 }}
@@ -224,11 +225,14 @@ export default function App() {
             src="/images/hero-car.png" 
             alt="Hero Car" 
             className="w-full h-full object-cover object-[65%_center] md:object-center"
+            loading="eager"
+            decoding="sync"
+            style={{ fetchPriority: 'high' } as any}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
         </motion.div>
 
-        <div className="container relative z-10 px-6 text-center pt-12 md:pt-24 lg:pt-0">
+        <div className="container relative z-10 px-6 text-center pt-28 md:pt-36">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -239,7 +243,7 @@ export default function App() {
             <motion.h1 
               initial={{ opacity: 0, y: 50, filter: 'blur(20px)' }}
               animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-              transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
               className="text-4xl sm:text-6xl md:text-9xl text-display mb-6"
             >
               Мистецтво <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-gray-600">Догляду</span>
@@ -334,6 +338,8 @@ export default function App() {
                   src="/images/hero-car.png" 
                   alt="After" 
                   className="w-full h-full object-cover"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
 
@@ -343,6 +349,8 @@ export default function App() {
                   src="/images/polishing.png" 
                   alt="Before" 
                   className="w-full h-full object-cover grayscale-[0.5] brightness-50"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
 
@@ -403,7 +411,7 @@ export default function App() {
                 className="group relative glass-card p-0 overflow-hidden hover:border-white/20 transition-all duration-500 cursor-pointer"
               >
                 <div className="h-48 overflow-hidden relative">
-                  <img src={service.image} alt={service.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                  <img src={service.image} alt={service.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" />
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
                 </div>
                 <div className="p-6 flex flex-col h-full justify-between gap-4">
@@ -718,6 +726,7 @@ export default function App() {
                 alt="Logo" 
                 className="h-10 md:h-12 w-auto block logo-isolated"
                 loading="lazy"
+                decoding="async"
               />
             </div>
             <div className="flex flex-col items-center md:items-start">
@@ -785,6 +794,8 @@ export default function App() {
                       src={selectedService.afterImage} 
                       alt="After" 
                       className="w-full h-full object-cover"
+                      loading="eager"
+                      decoding="async"
                     />
                   </div>
 
@@ -794,6 +805,8 @@ export default function App() {
                       src={selectedService.beforeImage} 
                       alt="Before" 
                       className="w-full h-full object-cover grayscale brightness-50"
+                      loading="lazy"
+                      decoding="async"
                     />
                   </div>
 
