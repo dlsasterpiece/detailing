@@ -80,11 +80,11 @@ export default function App() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="flex items-center gap-2 md:gap-3 cursor-pointer group"
           >
-            <div className="flex items-center justify-center">
+            <div className="flex items-center justify-center flex-shrink-0">
               <img 
                 src="/images/logo-v3.png" 
                 alt="Logo" 
-                className="h-8 md:h-12 w-auto block logo-isolated"
+                className="h-9 md:h-14 w-auto block logo-isolated"
                 loading="eager"
                 decoding="async"
                 style={{ fetchPriority: 'high' } as any}
@@ -92,7 +92,7 @@ export default function App() {
             </div>
             <div>
               <p className="text-[7px] md:text-[9px] tracking-[0.3em] font-medium opacity-80 uppercase leading-none mb-0.5 md:mb-1 text-white">Detailing Studio</p>
-              <p className="text-xs md:text-sm font-black tracking-tight leading-none text-white italic">UZHGOROD</p>
+              <p className="text-xs md:text-sm font-black tracking-tight leading-none text-accent italic">UZHGOROD</p>
             </div>
           </motion.div>
 
@@ -689,18 +689,18 @@ export default function App() {
       <footer className="py-12 bg-black border-t border-white/5 text-white">
         <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-10 md:gap-8 text-center md:text-left">
           <div className="flex flex-col md:flex-row items-center gap-4 md:gap-3">
-            <div className="flex items-center justify-center">
+            <div className="flex items-center justify-center flex-shrink-0">
               <img 
                 src="/images/logo-v3.png" 
                 alt="Logo" 
-                className="h-10 md:h-12 w-auto block logo-isolated"
+                className="h-12 md:h-16 w-auto block logo-isolated"
                 loading="lazy"
                 decoding="async"
               />
             </div>
-            <div className="flex flex-col items-center md:items-start">
-              <p className="text-[8px] md:text-[9px] tracking-[0.3em] font-light opacity-50 uppercase leading-none mb-1">Detailing Studio</p>
-              <p className="text-xs md:text-sm font-bold tracking-tight leading-none">UZHGOROD</p>
+            <div className="flex flex-col items-center md:items-start text-center md:text-left">
+              <p className="text-[8px] md:text-[9px] tracking-[0.3em] font-light opacity-50 uppercase leading-none mb-1 text-white/60">Detailing Studio</p>
+              <p className="text-xs md:text-sm font-bold tracking-tight leading-none text-accent">UZHGOROD</p>
             </div>
           </div>
           
