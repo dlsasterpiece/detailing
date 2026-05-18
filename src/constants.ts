@@ -11,11 +11,9 @@ export const SERVICES = [
     id: 'wash',
     title: 'Детейлінг мийка',
     description: 'Двоетапна безпечна мийка з очищенням важкодоступних місць та нанесенням захисних складів.',
-    details: 'Ми використовуємо метод двох відер та спеціальні пензлики для очищення решіток, шильдиків та ущільнювачів. Після мийки кузов покривається рідким воском або силантом для гідрофобу.',
+    details: 'Ми використовуємо метод двох відер для максимальної безпеки. Ретельне очищення дисків, арок та дверних отворів.',
     price: 'від 600 грн',
-    image: '/images/hero-car.png',
-    beforeImage: '/images/polishing.png',
-    afterImage: '/images/hero-car.png',
+    image: '/images/service-1.jpg',
   },
   {
     id: 'dry-clean',
@@ -23,9 +21,7 @@ export const SERVICES = [
     description: 'Глибока дезінфекція та відновлення стану всіх матеріалів салону — шкіра, алькантара, текстиль.',
     details: 'Повне розбирання або детальна чистка без демонтажу. Видалення складних плям, озонування салону для знищення бактерій та неприємних запахів. Консервація пластику та шкіри.',
     price: 'від 3500 грн',
-    image: '/images/interior-detailing.png',
-    beforeImage: '/images/interior-detailing.png',
-    afterImage: '/images/interior-detailing.png',
+    image: '/images/service-2.jpg',
   },
   {
     id: 'polish',
@@ -33,9 +29,7 @@ export const SERVICES = [
     description: 'Багатоетапне відновлення лакофарбового покриття, видалення подряпин та надання дзеркального блиску.',
     details: 'Ми прибираємо "голограми", дрібні та середні подряпини. Використовуємо пасти різної абразивності для досягнення ідеально рівної поверхні з глибоким відображенням.',
     price: 'від 5000 грн',
-    image: '/images/polishing.png',
-    beforeImage: '/images/polishing.png',
-    afterImage: '/images/hero-car.png',
+    image: '/images/service-3.jpg',
   },
   {
     id: 'ceramic',
@@ -43,9 +37,7 @@ export const SERVICES = [
     description: 'Максимальний захист від хімії, УФ-променів та агресивного середовища. Насичений колір та гідрофоб.',
     details: 'Нанесення складів 9H в декілька шарів. Захищає від вигорання, пташиного посліду, солі та полегшує догляд за авто. Ефект триває до 3 років.',
     price: 'від 8000 грн',
-    image: '/images/ceramic-coating.png',
-    beforeImage: '/images/hero-car.png',
-    afterImage: '/images/ceramic-coating.png',
+    image: '/images/service-4.jpg',
   },
   {
     id: 'headlights',
@@ -53,9 +45,7 @@ export const SERVICES = [
     description: 'Полірування та захист оптики бронеплівкою для ідеальної прозорості та безпеки на дорозі.',
     details: 'Усуваємо жовтизну та помутніння. Обов\'язково клеїмо поліуретанову плівку (PPF), щоб результат зберігся на роки, а не на тижні.',
     price: 'від 1200 грн',
-    image: '/images/polishing.png',
-    beforeImage: '/images/polishing.png',
-    afterImage: '/images/polishing.png',
+    image: '/images/service-5.jpg',
   },
   {
     id: 'leather',
@@ -63,9 +53,7 @@ export const SERVICES = [
     description: 'Очищення та кондиціонування преміальними засобами для збереження м\'якості та захисту від тріщин.',
     details: 'Делікатне очищення піною, яка не пересушує шкіру. Нанесення крему-кондиціонера або кераміки для шкіри, щоб вона менше бруднилася і залишалася матовою як нова.',
     price: 'від 1500 грн',
-    image: '/images/interior-detailing.png',
-    beforeImage: '/images/interior-detailing.png',
-    afterImage: '/images/interior-detailing.png',
+    image: '/images/service-6.jpg',
   },
 ];
 

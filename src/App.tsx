@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef, ReactNode, ChangeEvent } from 'react';
-import { motion, AnimatePresence, useScroll, useTransform } from 'motion/react';
+import { motion, AnimatePresence, useScroll, useTransform, useInView, animate } from 'motion/react';
 import { 
-  Car, 
   Sparkles, 
   ShieldCheck, 
   Clock, 
@@ -14,43 +13,14 @@ import {
   ChevronRight, 
   ChevronDown, 
   Star,
-  CheckCircle2,
   Droplets,
   Zap
 } from 'lucide-react';
 import { NAV_LINKS, SERVICES, REVIEWS, FAQS, PROCESS_STEPS } from './constants';
-// --- Sub-components ---
+import { GlassCard } from './components/GlassCard';
+import { SectionTitle } from './components/SectionTitle';
+import { CountUp } from './components/CountUp';
 
-const GlassCard = ({ children, className = "" }: { children: ReactNode, className?: string, key?: any }) => (
-  <div className={`glass-card p-6 ${className}`}>
-    {children}
-  </div>
-);
-
-const SectionTitle = ({ title, subtitle }: { title: string, subtitle?: string }) => (
-  <div className="mb-12 text-center">
-    <motion.h2 
-      initial={{ opacity: 0, y: 30, filter: 'blur(10px)' }}
-      whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-      viewport={{ once: true }}
-      transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-      className="text-4xl md:text-6xl text-display mb-4"
-    >
-      {title}
-    </motion.h2>
-    {subtitle && (
-      <motion.p 
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.4, duration: 0.8, ease: "easeOut" }}
-        className="text-white/60 max-w-2xl mx-auto uppercase tracking-widest text-[10px] md:text-sm"
-      >
-        {subtitle}
-      </motion.p>
-    )}
-  </div>
-);
 
 // --- Main App Component ---
 
@@ -60,7 +30,6 @@ export default function App() {
   const [sliderPosition, setSliderPosition] = useState(50);
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
   const [selectedService, setSelectedService] = useState<any | null>(null);
-  const [modalSliderPos, setModalSliderPos] = useState(50);
 
   const containerRef = useRef(null);
   
@@ -286,9 +255,9 @@ export default function App() {
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-12 md:mt-16 max-w-4xl mx-auto border-t border-white/5 pt-10 md:pt-12">
                {[
-                 { label: 'Досвід', value: '8+ років' },
-                 { label: 'Гарантія', value: '3 Роки' },
-                 { label: 'Авто', value: '5000+' },
+                 { label: 'Гарантія', value: <CountUp to={3} duration={1} suffix=" Роки" /> },
+                 { label: 'Досвід', value: <CountUp to={8} duration={1.2} suffix="+ років" /> },
+                 { label: 'Авто', value: <CountUp to={5000} duration={2} suffix="+" /> },
                  { label: 'Матеріали', value: 'Premium' },
                ].map((item, idx) => (
                  <div key={idx} className="flex flex-col gap-1 items-start md:items-center">
@@ -329,13 +298,13 @@ export default function App() {
                 Після
               </div>
 
-              {/* After Image (Top) */}
+              {/* After Image (Top Overlay) */}
               <div 
-                className="absolute inset-0 w-full h-full"
+                className="absolute inset-0 w-full h-full z-10"
                 style={{ clipPath: `inset(0 0 0 ${sliderPosition}%)` }}
               >
                 <img 
-                  src="/images/hero-car.png" 
+                  src="/images/mercedes-after.jpg" 
                   alt="After" 
                   className="w-full h-full object-cover"
                   loading="lazy"
@@ -343,12 +312,12 @@ export default function App() {
                 />
               </div>
 
-              {/* Before Image (Bottom) */}
-              <div className="absolute inset-0 w-full h-full -z-10">
+              {/* Before Image (Background Layer) */}
+              <div className="absolute inset-0 w-full h-full">
                 <img 
-                  src="/images/polishing.png" 
+                  src="/images/mercedes-before.png" 
                   alt="Before" 
-                  className="w-full h-full object-cover grayscale-[0.5] brightness-50"
+                  className="w-full h-full object-cover"
                   loading="lazy"
                   decoding="async"
                 />
@@ -777,59 +746,13 @@ export default function App() {
 
               <div className="grid grid-cols-1 lg:grid-cols-2">
                 <div className="relative aspect-square lg:aspect-auto h-full min-h-[400px] bg-black overflow-hidden select-none">
-                   {/* Labels (Always visible) */}
-                   <div className="pill absolute top-6 left-6 z-20 pointer-events-none drop-shadow-xl !bg-black/40 !backdrop-blur-md border-white/20">
-                     До
-                   </div>
-                   <div className="pill absolute top-6 right-6 z-20 pointer-events-none drop-shadow-xl !bg-black/40 !backdrop-blur-md border-white/20">
-                     Після
-                   </div>
-
-                   {/* After */}
-                   <div 
-                    className="absolute inset-0 w-full h-full"
-                    style={{ clipPath: `inset(0 0 0 ${modalSliderPos}%)` }}
-                  >
-                    <img 
-                      src={selectedService.afterImage} 
-                      alt="After" 
+                   <img 
+                      src={selectedService.image} 
+                      alt={selectedService.title} 
                       className="w-full h-full object-cover"
                       loading="eager"
                       decoding="async"
                     />
-                  </div>
-
-                  {/* Before */}
-                  <div className="absolute inset-0 w-full h-full">
-                    <img 
-                      src={selectedService.beforeImage} 
-                      alt="Before" 
-                      className="w-full h-full object-cover grayscale brightness-50"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </div>
-
-                  {/* Handle */}
-                  <div 
-                    className="absolute top-0 bottom-0 w-0.5 bg-white z-20 pointer-events-none"
-                    style={{ left: `${modalSliderPos}%` }}
-                  >
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black border border-white flex items-center justify-center shadow-2xl">
-                       <div className="flex gap-0.5">
-                         <div className="w-0.5 h-3 bg-white/50 rounded-full" />
-                         <div className="w-0.5 h-3 bg-white/50 rounded-full" />
-                       </div>
-                    </div>
-                  </div>
-
-                  <input 
-                    type="range" 
-                    min="0" max="100" 
-                    value={modalSliderPos} 
-                    onChange={(e) => setModalSliderPos(Number(e.target.value))}
-                    className="absolute inset-0 w-full h-full opacity-0 z-30 cursor-pointer"
-                  />
                 </div>
 
                 {/* Right side: Details */}
