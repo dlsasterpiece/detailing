@@ -19,17 +19,6 @@
   }
 }
 
-/* Ensure logos are NEVER inverted or filtered by global styles or plugins */
-.logo-isolated {
-  filter: none !important;
-  mix-blend-mode: normal !important;
-  image-rendering: auto !important;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  max-width: none !important;
-  transform: translateZ(0); /* Force GPU layer to potentially avoid some browser filters */
-}
-
 @layer components {
   .glass-card {
     @apply bg-white/[0.03] backdrop-blur-2xl border border-white/10 rounded-3xl;

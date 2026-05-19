@@ -82,17 +82,13 @@ export default function App() {
           >
             <div className="flex items-center justify-center flex-shrink-0">
               <img 
-                src="/images/logo-v3.png" 
-                alt="Logo" 
-                className="h-9 md:h-14 w-auto block logo-isolated"
+                src="/images/logo.png" 
+                alt="Detailing Uzhgorod" 
+                className="h-10 md:h-16 w-auto block object-contain"
                 loading="eager"
                 decoding="async"
                 style={{ fetchPriority: 'high' } as any}
               />
-            </div>
-            <div>
-              <p className="text-[7px] md:text-[9px] tracking-[0.3em] font-medium opacity-80 uppercase leading-none mb-0.5 md:mb-1 text-white">Detailing Studio</p>
-              <p className="text-xs md:text-sm font-black tracking-tight leading-none text-accent italic">UZHGOROD</p>
             </div>
           </motion.div>
 
@@ -691,16 +687,12 @@ export default function App() {
           <div className="flex flex-col md:flex-row items-center gap-4 md:gap-3">
             <div className="flex items-center justify-center flex-shrink-0">
               <img 
-                src="/images/logo-v3.png" 
-                alt="Logo" 
-                className="h-12 md:h-16 w-auto block logo-isolated"
+                src="/images/logo.png" 
+                alt="Detailing Uzhgorod" 
+                className="h-14 md:h-20 w-auto block object-contain"
                 loading="lazy"
                 decoding="async"
               />
-            </div>
-            <div className="flex flex-col items-center md:items-start text-center md:text-left">
-              <p className="text-[8px] md:text-[9px] tracking-[0.3em] font-light opacity-50 uppercase leading-none mb-1 text-white/60">Detailing Studio</p>
-              <p className="text-xs md:text-sm font-bold tracking-tight leading-none text-accent">UZHGOROD</p>
             </div>
           </div>
           
